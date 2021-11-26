@@ -17,6 +17,16 @@ class CreateCompaniesTable extends Migration
 
             $table->longText('description')->nullable();
 
+            $table->string('price');
+
+            $table->string('bedrooms');
+
+            $table->string('bathrooms');
+
+            $table->string('area');
+
+            $table->string('phone');
+
             $table->timestamps();
 
             $table->softDeletes();

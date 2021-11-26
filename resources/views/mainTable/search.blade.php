@@ -13,7 +13,7 @@
 
                         <div class="form-row">
                             <div class="form-group col-md-4">
-                                <input type="text" name="search" value="{{ old('search') }}" class="form-control" placeholder="Search company" />
+                                <input type="text" name="search" value="{{ old('search') }}" class="form-control" placeholder="Search property" />
                                 <p class="help-block"></p>
                                 @if($errors->has('name'))
                                     <p class="help-block">
@@ -57,7 +57,7 @@
                         </div>
 
                     </form>
-					 
+
 				</div>
 			</div>
 		</div>
@@ -93,13 +93,13 @@
                         @if (count($companies) > 0)
                             @foreach ($companies as $company)
                                 <div class="col-sm-12 col-lg-4 col-md-6">
-                                
+
                                     <!-- product card -->
-                            
+
                                     <div class="product-item bg-light">
                                         <div class="card">
                                             <div class="thumb-content">
-                                                @if($company->logo)<a href="{{ route('company', [$company->id]) }}"><img class="card-img-top img-fluid" src="{{ asset(env('UPLOAD_PATH').'/thumb/' . $company->logo) }}"/></a>@endif
+                                                @if($company->logo)<a href="{{ route('company', [$company->id]) }}"><img class="card-img-top img-fluid" src="{{ asset('storage/'.$company->logo->id.'/'.$company->logo->file_name) }}"/></a>@endif
                                             </div>
                                             <div class="card-body">
                                                 <h4 class="card-title"><a href="{{ route('company', [$company->id]) }}">{{$company->name}}</a></h4>

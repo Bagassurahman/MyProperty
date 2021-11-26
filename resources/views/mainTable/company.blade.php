@@ -12,7 +12,7 @@
 
 						<div class="form-row">
 							<div class="form-group col-md-4">
-								<input type="text" name="search" value="{{ old('search') }}" class="form-control" placeholder="Search company" />
+								<input type="text" name="search" value="{{ old('search') }}" class="form-control" placeholder="Search property" />
 								<p class="help-block"></p>
 								@if($errors->has('name'))
 									<p class="help-block">
@@ -85,15 +85,15 @@
                     <br>
                     <div class="col-md-4">
                         @if($company->logo)
-							<a href="{{ $company->logo->getUrl() }}" target="_blank">
-								<img src="{{ $company->logo->getUrl() }}" width="200">
+							<a href="{{ asset('storage/'.$company->logo->id.'/'.$company->logo->file_name) }}" target="_blank">
+								<img src="{{ asset('storage/'.$company->logo->id.'/'.$company->logo->file_name) }}" width="200">
 							</a>
 						@endif
                     </div>
 					<div class="content">
 						<div class="tab-content" id="pills-tabContent">
 							<div class="tab-pane fade show active" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab">
-								<h3 class="tab-title">About company</h3>
+								<h3 class="tab-title">About this property</h3>
 								<p>{{ $company->description}}</p>
 							</div>
                             <div class="tab-pane fade show active" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab">
@@ -101,6 +101,34 @@
 								<p>{{ $company->address}}</p>
 							</div>
 						</div>
+                        <div class="tab-content">
+                            <div class="row">
+                                <div class="col-4">
+                                    <h4 class="text-center">
+                                        <img src="https://img.icons8.com/fluency-systems-regular/20/000000/bed.png"/> <span class="bed font-weight-bold">{{ $company->bedrooms }}</span>
+                                        <br>
+                                        Bedrooms
+                                    </h4>
+                                </div>
+                                <div class="col-4">
+                                    <h4 class="text-center">
+                                        <img src="https://img.icons8.com/ios/20/000000/bath.png"/> <span class="bath font-weight-bold">{{ $company->bathrooms }}</span>
+                                        <br>
+                                        Bathrooms
+                                    </h4>
+                                </div>
+                                <div class="col-4">
+                                    <h4 class="text-center">
+                                        <img src="/images/icons/selection.png"/> <span class="area font-weight-bold">{{ $company->area }}m<sup>2</sup></span>
+                                        <br>
+                                        Living Area
+                                    </h4>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <a href="https://api.whatsapp.com/send?phone={{ $company->phone }}&text=Saya%20tertarik%20untuk%20membeli%20{{ $company->name }}%20yang%20beralamat%20di%20{{ $company->address }}%20dengan%20harga%20Rp{{ $company->price }}%20ini%20segera." class="btn btn-success mx-auto mt-5" target="_blank"><i class="fab fa-whatsapp-square"></i> WhatsApp</a>
+                            </div>
+                        </div>
 					</div>
 				</div>
 			</div>
@@ -108,7 +136,7 @@
 				<div class="sidebar">
 					<!-- User Profile widget -->
 					<div class="widget user">
-						<h4>Other companies in this category</h4>
+						<h4>Other properties in this category</h4>
                         @foreach ($company->categories as $singleCategories)
                             @foreach ($singleCategories->companies->shuffle()->take(10) as $singleCompany)
                             <li><a href="{{ route('company', [$singleCompany->id]) }}">{{ $singleCompany->name }}</a></li>
@@ -118,7 +146,7 @@
 					<!-- Map Widget -->
 				</div>
 			</div>
-			
+
 		</div>
 	</div>
 	<!-- Container End -->

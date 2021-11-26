@@ -8,7 +8,7 @@
                         <i class="fa-fw fas fa-cogs nav-icon">
 
                         </i>
-                        {{ trans('cruds.company.title') }}
+                        Property
                     </a>
                 </li>
             @endcan
@@ -29,6 +29,16 @@
 
                         </i>
                         {{ trans('cruds.category.title') }}
+                    </a>
+                </li>
+            @endcan
+            @can('company_access')
+                <li class="nav-item">
+                    <a href="{{ route("admin.forms.index") }}" class="nav-link {{ request()->is('admin/forms') || request()->is('admin/forms/*') ? 'active' : '' }}">
+                        <i class="fa-fw fas fa-cogs nav-icon">
+
+                        </i>
+                        Forms
                     </a>
                 </li>
             @endcan

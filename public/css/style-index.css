@@ -1,0 +1,33 @@
+.navbar .navbar-nav .nav-item .nav-link{
+    font-style: normal;
+    font-weight: 600;
+    font-size: 18px;
+    line-height: 24px;
+}
+.navbar .navbar-nav .nav-item .nav-link:hover{
+    color: rgb(94, 94, 94);
+}
+
+/* Property */
+.property-block .card-body .price{
+    font-style: normal;
+    font-weight: bold;
+    font-size: 18px;
+    line-height: 22px;
+}
+.property-block .card-body .address{
+    font-style: normal;
+    font-weight: bold;
+    font-size: 14px;
+    line-height: 17px;
+    color: #606060;
+}
+.property-block .card-footer{
+    background: none;
+}
+.property-block .card-footer h4{
+    font-style: normal;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 17px;
+}

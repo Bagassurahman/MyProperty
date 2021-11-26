@@ -358,7 +358,7 @@ button {
   right: 0;
   width: 40px;
   height: 5px;
-  background-color: #5672f9;
+  background-color: #B61919;
 }
 
 .section-title p {
@@ -436,12 +436,12 @@ button {
 }
 
 .btn-main, .btn-main-sm {
-  background: #5672f9;
+  background: #b61919dc;
   color: #fff;
 }
 
 .btn-main:hover, .btn-main-sm:hover {
-  background: #082de1;
+  background: #B61919;
   color: #fff;
 }
 
@@ -635,9 +635,10 @@ ul.pagination .active a {
 }
 
 .bg-1 {
-  background: url("../images/home/hero.jpg");
+  background: url("../images/home/bg.jpg");
   background-size: cover;
   background-repeat: no-repeat;
+  background-position: 10%;
 }
 
 .bg-2 {
@@ -1185,6 +1186,14 @@ ul.pagination .active a {
   padding: 20px 25px;
   border-radius: 3px;
   margin-bottom: 25px;
+}
+.property-block {
+  box-shadow: 0px 7px 16px 0px rgba(0, 0, 0, 0.09);
+  border-radius: 6px;
+  border: none;
+}
+.property-block .card-top .img{
+    border-radius: 6px 6px 0px 0px;
 }
 
 .category-block .header {

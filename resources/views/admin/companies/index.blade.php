@@ -4,14 +4,14 @@
     <div style="margin-bottom: 10px;" class="row">
         <div class="col-lg-12">
             <a class="btn btn-success" href="{{ route("admin.companies.create") }}">
-                {{ trans('global.add') }} {{ trans('cruds.company.title_singular') }}
+                {{ trans('global.add') }} Property
             </a>
         </div>
     </div>
 @endcan
 <div class="card">
     <div class="card-header">
-        {{ trans('cruds.company.title_singular') }} {{ trans('global.list') }}
+        Property {{ trans('global.list') }}
     </div>
 
     <div class="card-body">
@@ -41,7 +41,7 @@
                             {{ trans('cruds.company.fields.categories') }}
                         </th>
                         <th>
-                            {{ trans('cruds.company.fields.logo') }}
+                            Gambar
                         </th>
                         <th>
                             &nbsp;
@@ -76,8 +76,8 @@
                             </td>
                             <td>
                                 @if($company->logo)
-                                    <a href="{{ $company->logo->getUrl() }}" target="_blank">
-                                        <img src="{{ $company->logo->getUrl('thumb') }}" width="50px" height="50px">
+                                    <a href="{{ asset('storage/'.$company->logo->id.'/'.$company->logo->file_name) }}" target="_blank">
+                                        <img src="{{ asset('storage/'.$company->logo->id.'/'.$company->logo->file_name) }}" width="50px" height="50px">
                                     </a>
                                 @endif
                             </td>

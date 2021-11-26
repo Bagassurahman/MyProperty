@@ -1,5 +1,5 @@
 <?php
 
 return [
-    'site_title' => 'Classifieds',
+    'site_title' => 'My Property',
 ];

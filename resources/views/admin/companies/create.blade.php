@@ -3,7 +3,7 @@
 
 <div class="card">
     <div class="card-header">
-        {{ trans('global.create') }} {{ trans('cruds.company.title_singular') }}
+        {{ trans('global.create') }} Property
     </div>
 
     <div class="card-body">
@@ -45,6 +45,51 @@
                     {{ trans('cruds.company.fields.description_helper') }}
                 </p>
             </div>
+            <div class="form-group {{ $errors->has('price') ? 'has-error' : '' }}">
+                <label for="price">Price</label>
+                <input type="text" id="price" name="price" class="form-control" value="{{ old('price', isset($company) ? $company->price : '') }}">
+                @if($errors->has('price'))
+                    <em class="invalid-feedback">
+                        {{ $errors->first('price') }}
+                    </em>
+                @endif
+            </div>
+            <div class="form-group {{ $errors->has('bedrooms') ? 'has-error' : '' }}">
+                <label for="bedrooms">Bedrooms</label>
+                <input type="text" id="bedrooms" name="bedrooms" class="form-control" value="{{ old('bedrooms', isset($company) ? $company->bedrooms : '') }}">
+                @if($errors->has('bedrooms'))
+                    <em class="invalid-feedback">
+                        {{ $errors->first('bedrooms') }}
+                    </em>
+                @endif
+            </div>
+            <div class="form-group {{ $errors->has('bathrooms') ? 'has-error' : '' }}">
+                <label for="bathrooms">Bathrooms</label>
+                <input type="text" id="bathrooms" name="bathrooms" class="form-control" value="{{ old('bathrooms', isset($company) ? $company->bathrooms : '') }}">
+                @if($errors->has('bathrooms'))
+                    <em class="invalid-feedback">
+                        {{ $errors->first('bathrooms') }}
+                    </em>
+                @endif
+            </div>
+            <div class="form-group {{ $errors->has('area') ? 'has-error' : '' }}">
+                <label for="area">Area</label>
+                <input type="text" id="area" name="area" class="form-control" value="{{ old('area', isset($company) ? $company->area : '') }}">
+                @if($errors->has('area'))
+                    <em class="invalid-feedback">
+                        {{ $errors->first('area') }}
+                    </em>
+                @endif
+            </div>
+            <div class="form-group {{ $errors->has('phone') ? 'has-error' : '' }}">
+                <label for="phone">Telephone</label>
+                <input type="text" id="phone" name="phone" class="form-control" value="{{ old('phone', isset($company) ? $company->phone : '') }}">
+                @if($errors->has('phone'))
+                    <em class="invalid-feedback">
+                        {{ $errors->first('phone') }}
+                    </em>
+                @endif
+            </div>
             <div class="form-group {{ $errors->has('city_id') ? 'has-error' : '' }}">
                 <label for="city">{{ trans('cruds.company.fields.city') }}</label>
                 <select name="city_id" id="city" class="form-control select2">
@@ -77,7 +122,7 @@
                 </p>
             </div>
             <div class="form-group {{ $errors->has('logo') ? 'has-error' : '' }}">
-                <label for="logo">{{ trans('cruds.company.fields.logo') }}</label>
+                <label for="logo">Gambar</label>
                 <div class="needsclick dropzone" id="logo-dropzone">
 
                 </div>

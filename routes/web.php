@@ -1,5 +1,7 @@
 <?php
-Route::get('/', 'HomePageController@index');
+Route::get('/', 'HomePageController@index')->name('home');
+Route::get('contact', 'HomePageController@contact')->name('contact');
+Route::post('contact/store', 'HomePageController@storecontact')->name('forms.store');
 Route::get('search', 'HomePageController@table')->name('search');
 Route::get('categories/{category}', 'HomePageController@category')->name('category');
 Route::get('companies/{company}', 'HomePageController@company')->name('company');
@@ -28,6 +30,10 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.', 'namespace' => 'Admin', 'mi
     // Categories
     Route::delete('categories/destroy', 'CategoriesController@massDestroy')->name('categories.massDestroy');
     Route::resource('categories', 'CategoriesController');
+
+    // Categories
+    Route::delete('forms/destroy', 'FormsController@massDestroy')->name('forms.massDestroy');
+    Route::resource('forms', 'FormsController');
 
     // Companies
     Route::delete('companies/destroy', 'CompaniesController@massDestroy')->name('companies.massDestroy');

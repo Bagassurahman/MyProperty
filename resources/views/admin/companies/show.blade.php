@@ -3,7 +3,7 @@
 
 <div class="card">
     <div class="card-header">
-        {{ trans('global.show') }} {{ trans('cruds.company.title') }}
+        {{ trans('global.show') }} Property
     </div>
 
     <div class="card-body">
@@ -62,12 +62,12 @@
                     </tr>
                     <tr>
                         <th>
-                            {{ trans('cruds.company.fields.logo') }}
+                            Gambar
                         </th>
                         <td>
                             @if($company->logo)
-                                <a href="{{ $company->logo->getUrl() }}" target="_blank">
-                                    <img src="{{ $company->logo->getUrl('thumb') }}" width="50px" height="50px">
+                                <a href="{{ asset('storage/'.$company->logo->id.'/'.$company->logo->file_name) }}" target="_blank">
+                                    <img src="{{ asset('storage/'.$company->logo->id.'/'.$company->logo->file_name) }}" width="50px" height="50px">
                                 </a>
                             @endif
                         </td>

@@ -12,7 +12,7 @@
 
                         <div class="form-row">
                             <div class="form-group col-md-4">
-                                <input type="text" name="search" value="{{ old('search') }}" class="form-control" placeholder="Search company" />
+                                <input type="text" name="search" value="{{ old('search') }}" class="form-control" placeholder="Search property" />
                                 <p class="help-block"></p>
                                 @if($errors->has('name'))
                                     <p class="help-block">
@@ -85,20 +85,20 @@
                     </div>
 				</div>
 			</div>
-           
+
 			<div class="col-md-9">
 				<div class="product-grid-list">
 					<div class="row mt-30">
-                         
+
                         @foreach ($companies as $singleCompany)
                             <div class="col-sm-12 col-lg-4 col-md-6">
-                            
+
                                 <!-- product card -->
-                        
+
                                 <div class="product-item bg-light">
                                     <div class="card">
                                         <div class="thumb-content">
-                                        @if($singleCompany->logo)<a href="{{ route('company', [$singleCompany->id]) }}"><img class="card-img-top img-fluid" src="{{ asset(env('UPLOAD_PATH').'/thumb/' . $singleCompany->logo) }}"/></a>@endif
+                                        @if($singleCompany->logo)<a href="{{ route('company', [$singleCompany->id]) }}"><img class="card-img-top img-fluid" src="{{ asset('storage/'.$singleCompany->logo->id.'/'.$singleCompany->logo->file_name) }}"/></a>@endif
                                         </div>
                                         <div class="card-body">
                                             <h4 class="card-title"><a href="{{ route('company', [$singleCompany->id]) }}">{{$singleCompany->name}}</a></h4>
@@ -117,7 +117,7 @@
                         @endforeach
 					</div>
 				</div>
-                
+
                 {{ $companies->render() }}
 			</div>
 		</div>
